@@ -11,7 +11,7 @@ services:
       - caddy-data:/data:rw
       - caddy-config:/config:rw
     environment:
-      - SEARXNG_HOSTNAME=${SEARXNG_HOSTNAME:-http://localhost:80}
+      - SEARXNG_HOSTNAME=${SEARXNG_HOSTNAME:-http://http://127.0.0.1:8080/}
       - SEARXNG_TLS=${LETSENCRYPT_EMAIL:-internal}
     # cap_drop:
     #   - ALL
@@ -55,7 +55,7 @@ services:
     volumes:
       - ./searxng:/etc/searxng:rw
     environment:
-      - SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/
+      - SEARXNG_BASE_URL=http://${SEARXNG_HOSTNAME}/
       - UWSGI_WORKERS=${SEARXNG_UWSGI_WORKERS:-4}
       - UWSGI_THREADS=${SEARXNG_UWSGI_THREADS:-4}
     # cap_drop:
