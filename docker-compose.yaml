@@ -13,8 +13,8 @@ services:
     environment:
       - SEARXNG_HOSTNAME=${SEARXNG_HOSTNAME:-http://localhost:80}
       - SEARXNG_TLS=${LETSENCRYPT_EMAIL:-internal}
-    cap_drop:
-      - ALL
+    # cap_drop:
+    #   - ALL
     cap_add:
       - NET_BIND_SERVICE
     logging:
@@ -32,8 +32,8 @@ services:
       - searxng
     volumes:
       - valkey-data2:/data
-    cap_drop:
-      - ALL
+    # cap_drop:
+    #   - ALL
     cap_add:
       - SETGID
       - SETUID
@@ -58,8 +58,8 @@ services:
       - SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/
       - UWSGI_WORKERS=${SEARXNG_UWSGI_WORKERS:-4}
       - UWSGI_THREADS=${SEARXNG_UWSGI_THREADS:-4}
-    cap_drop:
-      - ALL
+    # cap_drop:
+    #   - ALL
     cap_add:
       - CHOWN
       - SETGID

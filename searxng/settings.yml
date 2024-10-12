@@ -1,11 +1,27 @@
 # see https://docs.searxng.org/admin/settings/settings.html#settings-use-default-settings
 use_default_settings: true
+
+general:
+  debug: false
+  instance_name: "SearXNG"
+
+search:
+  safe_search: 2
+  autocomplete: 'duckduckgo'
+
 server:
   # base_url is defined in the SEARXNG_BASE_URL environment variable, see .env and docker-compose.yml
-  secret_key: "ultrasecretkey"  # change this!
+  secret_key: "0be21873e40d04f40e7e10618a871dd778f08e268650ed54fff5f67c97f82cdc"  # change this!
   limiter: true  # can be disabled for a private instance
   image_proxy: true
 ui:
   static_use_hash: true
+
+enabled_plugins:
+  - 'Hash plugin'
+  - 'Self Informations'
+  - 'Tracker URL remover'
+  - 'Ahmia blacklist'
+
 redis:
   url: redis://redis:6379/0
